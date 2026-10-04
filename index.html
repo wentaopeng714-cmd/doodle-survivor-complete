@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#d8cfaa">
+  <meta name="description" content="A four-minute hand-drawn survival roguelite prototype.">
+  <title>Doodle Survivor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="game-frame" aria-label="Doodle Survivor game">
+      <canvas id="game" width="360" height="640" aria-label="Game canvas. Drag, use WASD, or use arrow keys to move."></canvas>
+
+      <header class="hud" aria-live="polite">
+        <div class="topline">
+          <div id="hearts" class="hearts">♥♥♥♥♥</div>
+          <div id="phase">QUIET MARGINS</div>
+          <div id="timer">00:00</div>
+        </div>
+        <div class="xp-row"><span id="level">LV 1</span><div class="xp"><i id="xpFill"></i></div></div>
+        <div id="skillStrip" class="skill-strip"></div>
+      </header>
+
+      <button id="eraseBtn" class="erase-btn" type="button" aria-label="Use Eraser now">
+        <span>ERASER</span><small id="eraseCd">LOCKED</small>
+      </button>
+      <button id="soundBtn" class="sound-btn" type="button" aria-label="Toggle music and sound effects">♫ ON</button>
+
+      <div id="start" class="paper-modal start-card">
+        <div class="scribble-mark">✎</div>
+        <p class="eyebrow">A four-minute field note</p>
+        <h1>Doodle<br>Survivor</h1>
+        <p>Move through an endless paper world.<br>Your doodles attack on their own.</p>
+        <div id="records" class="records">BEST --:-- · LV -- · BOSS ×0</div>
+        <button id="startBtn" type="button">Choose first doodle</button>
+        <small>Drag anywhere · WASD / arrow keys</small>
+      </div>
+
+      <div id="upgrade" class="paper-modal upgrade-modal hidden" role="dialog" aria-modal="true" aria-labelledby="upgradeTitle">
+        <p class="eyebrow">New margin note</p>
+        <h2 id="upgradeTitle">Choose one</h2>
+        <div id="upgradeCards" class="card-list"></div>
+      </div>
+
+      <div id="result" class="paper-modal hidden" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+        <div id="resultStamp" class="stamp">RUN OVER</div>
+        <h2 id="resultTitle">The ink caught up</h2>
+        <p id="resultText"></p>
+        <p id="buildTitle" class="build-title"></p>
+        <p id="recordNote" class="record-note"></p>
+        <dl class="result-grid">
+          <div><dt>Time</dt><dd id="timeDone">0:00</dd></div>
+          <div><dt>Doodles</dt><dd id="killsDone">0</dd></div>
+        </dl>
+        <button id="restartBtn" type="button">Draw again</button>
+      </div>
+
+      <div id="bossNotice" class="boss-notice hidden">THE FORGOTTEN ONE<br><small>has found your page</small></div>
+      <div id="toast" class="toast hidden"></div>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
